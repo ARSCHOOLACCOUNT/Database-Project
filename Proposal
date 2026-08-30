@@ -1,0 +1,33 @@
+My database is designed to track consumer electronic devices and the companies that manufacture
+them. It includes the category each device belongs to, and the operating system each device
+runs. The goal of this databse is to be able to compare products, track release history, organize devices 
+by manufacturer, category, OS, etc.
+
+
+Entities and Descriptions
+
+Entity Type: Manufacturer
+Sample instances: Apple, Samsung
+Attributes: Company name, Country of headquarters, Year founded
+
+Entity Type: Device
+Sample instances: iPhone 17, Galaxy S24
+Attributes: Model name, Release year, Price
+
+Entity Type: Category
+Sample instances: Smartphone, Laptop
+Attributes: Category name, Description, Average price range
+
+Entity Type: Operating System
+Sample instances: iOS 17, Android 14
+Attributes: OS name, Version number, Developer
+
+Relationships
+- A Manufacturer produces one or more Devices (one to many)
+- A device belongs to one Category (many to one)
+- A Device runs one Operating System (many to many)
+
+Use Cases:
+1. I want to look up all devices made by a specific manufacturer
+2. I want to find all devices in a certain category within a certain price range
+3. I want to see which devices run a particular operating system or version
