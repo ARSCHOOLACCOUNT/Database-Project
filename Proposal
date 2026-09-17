@@ -3,31 +3,43 @@ them. It includes the category each device belongs to, and the operating system 
 runs. The goal of this databse is to be able to compare products, track release history, organize devices 
 by manufacturer, category, OS, etc.
 
+With this database, I am able to:
+- Look up all devices made by a specific manufacturer
+- Find all devices in a given category within a certain price range
+- See which devices run a particular operating system or version
+- Compare specific storage/color variants of a device, including their individual pricing 
+
 
 Entities and Descriptions
 
 Entity Type: Manufacturer
 Sample instances: Apple, Samsung
-Attributes: Company name, Country of headquarters, Year founded
+Attributes: manufacturerID, companyName, Country, yearFounded
 
 Entity Type: Device
 Sample instances: iPhone 17, Galaxy S24
-Attributes: Model name, Release year, Price
+Attributes: deviceID, modelName, releaseYear, basePrice
 
 Entity Type: Category
 Sample instances: Smartphone, Laptop
-Attributes: Category name, Description, Average price range
+Attributes: CategoryID, categoryName, Description, avgPriceRange
 
 Entity Type: Operating System
 Sample instances: iOS 17, Android 14
-Attributes: OS name, Version number, Developer
+Attributes: odID, osName, versionNumber, Developer
+
+Entity Type: Device Variant (NEW weak entity)
+Sample instances: iPhone 17 - 256GB. Black, Galaxy S24 - 512GB, Silver
+Attributes: variantNumber, Color, storageCapactiy, variantPrice
 
 Relationships
 - A Manufacturer produces one or more Devices (one to many)
 - A device belongs to one Category (many to one)
 - A Device runs one Operating System (many to many)
+- A Device has one or more Device Variants (one to none - NEW)
 
 Use Cases:
 1. I want to look up all devices made by a specific manufacturer
 2. I want to find all devices in a certain category within a certain price range
 3. I want to see which devices run a particular operating system or version
+4. I want to compare specific storage/color variants of a device, including their pricing (NEW) 
