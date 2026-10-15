@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.4.10, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.4.11, for Linux (x86_64)
 --
 -- Host: localhost    Database: device_project
 -- ------------------------------------------------------
--- Server version	8.4.10-0ubuntu0.26.04.1
+-- Server version	8.4.11-0ubuntu0.26.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -60,7 +60,7 @@ CREATE TABLE `Device` (
   KEY `categoryID` (`categoryID`),
   CONSTRAINT `Device_ibfk_1` FOREIGN KEY (`manufacturerID`) REFERENCES `Manufacturer` (`manufacturerID`),
   CONSTRAINT `Device_ibfk_2` FOREIGN KEY (`categoryID`) REFERENCES `Category` (`categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `Device` (
 
 LOCK TABLES `Device` WRITE;
 /*!40000 ALTER TABLE `Device` DISABLE KEYS */;
-INSERT INTO `Device` VALUES (1,'iPhone 17',2025,799.00,1,1),(2,'Galaxy S24',2024,799.99,2,1);
+INSERT INTO `Device` VALUES (1,'iPhone 17',2025,799.00,1,1),(2,'Galaxy S24',2024,799.99,2,1),(3,'MacBook Air M3',2024,1099.00,1,2),(4,'XPS 13',2024,1299.00,3,2),(5,'Surface Laptop 7',2024,999.00,4,2);
 /*!40000 ALTER TABLE `Device` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +96,7 @@ CREATE TABLE `Device_OS` (
 
 LOCK TABLES `Device_OS` WRITE;
 /*!40000 ALTER TABLE `Device_OS` DISABLE KEYS */;
-INSERT INTO `Device_OS` VALUES (1,1),(2,2);
+INSERT INTO `Device_OS` VALUES (1,1),(2,2),(4,3),(5,3),(3,4),(4,5);
 /*!40000 ALTER TABLE `Device_OS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ CREATE TABLE `Manufacturer` (
   `Country` varchar(100) DEFAULT NULL,
   `yearFounded` year DEFAULT NULL,
   PRIMARY KEY (`manufacturerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `Manufacturer` (
 
 LOCK TABLES `Manufacturer` WRITE;
 /*!40000 ALTER TABLE `Manufacturer` DISABLE KEYS */;
-INSERT INTO `Manufacturer` VALUES (1,'Apple','USA',1976),(2,'Samsung','South Korea',1938);
+INSERT INTO `Manufacturer` VALUES (1,'Apple','USA',1976),(2,'Samsung','South Korea',1938),(3,'Dell','USA',1984),(4,'Microsoft','USA',1975);
 /*!40000 ALTER TABLE `Manufacturer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +167,7 @@ CREATE TABLE `Operating_System` (
   `versionNumber` varchar(50) DEFAULT NULL,
   `Developer` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`osID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +176,7 @@ CREATE TABLE `Operating_System` (
 
 LOCK TABLES `Operating_System` WRITE;
 /*!40000 ALTER TABLE `Operating_System` DISABLE KEYS */;
-INSERT INTO `Operating_System` VALUES (1,'iOS','18','Apple'),(2,'Android','14','Google');
+INSERT INTO `Operating_System` VALUES (1,'iOS','18','Apple'),(2,'Android','14','Google'),(3,'Windows','11','Microsoft'),(4,'macOS','15','Apple'),(5,'Ubuntu','24.04','Canonical');
 /*!40000 ALTER TABLE `Operating_System` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -189,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-23 19:30:58
+-- Dump completed on 2026-10-15 22:13:20
