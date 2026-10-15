@@ -1,6 +1,6 @@
 My database is designed to track consumer electronic devices and the companies that manufacture
 them. It includes the category each device belongs to, and the operating system each device
-runs. The goal of this databse is to be able to compare products, track release history, organize devices 
+runs. The goal of this database is to be able to compare products, track release history, organize devices 
 by manufacturer, category, OS, etc.
 
 With this database, I am able to:
@@ -22,21 +22,21 @@ Attributes: deviceID, modelName, releaseYear, basePrice
 
 Entity Type: Category
 Sample instances: Smartphone, Laptop
-Attributes: CategoryID, categoryName, Description, avgPriceRange
+Attributes: categoryID, categoryName, Description, avgPriceRange
 
 Entity Type: Operating System
 Sample instances: iOS 17, Android 14
-Attributes: odID, osName, versionNumber, Developer
+Attributes: osID, osName, versionNumber, Developer
 
 Entity Type: Device Variant (NEW weak entity)
 Sample instances: iPhone 17 - 256GB. Black, Galaxy S24 - 512GB, Silver
-Attributes: variantNumber, Color, storageCapactiy, variantPrice
+Attributes: variantNumber, Color, storageCapacity, variantPrice
 
 Relationships
 - A Manufacturer produces one or more Devices (one to many)
 - A device belongs to one Category (many to one)
-- A Device runs one Operating System (many to many)
-- A Device has one or more Device Variants (one to none - NEW)
+- A Device runs one or more Operating Systems, and an Operating System runs on many Devices (many to many)
+- A Device has one or more Device Variants (one to many)
 
 Use Cases:
 1. I want to look up all devices made by a specific manufacturer
