@@ -5,12 +5,12 @@
 <body>
 
 <h1>Add a Device</h1>
-<p>Fill this out and hit submit to add a third row to the device table.</p>
+<p>Fill this out and hit submit to add a device to the table.</p>
 
 <form method="GET" action="/result">
-Model Name: <input type="text" name="modelName"><br>
-Release Year: <input type="text" name="releaseYear"><br>
-Base Price: <input type="text" name="basePrice"><br>
+Model Name: <input type="text" name="modelName" required><br>
+Release Year: <input type="number" name="releaseYear" required><br>
+Base Price: <input type="number" step="0.01" name="basePrice" required><br>
 <input type="submit" value="Submit">
 </form>
 

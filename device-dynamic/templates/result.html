@@ -13,22 +13,14 @@
 <th>Release Year</th>
 <th>Base Price</th>
 </tr>
+{% for row in rows %}
 <tr>
-<td>iPhone 17</td>
-<td>2025</td>
-<td>$799.00</td>
+{% for item in row %}<td>{{ item }}</td>{% endfor %}
 </tr>
-<tr>
-<td>Galaxy S24</td>
-<td>2024</td>
-<td>$799.99</td>
-</tr>
-<tr>
-<td>{{ modelName }}</td>
-<td>{{ releaseYear }}</td>
-<td>{{ basePrice }}</td>
-</tr>
+{% endfor %}
 </table>
+
+<p><a href="/">Add another device</a></p>
 
 </body>
 </html>
