@@ -9,13 +9,22 @@
 
 <table border="1">
 <tr>
+<th>Device ID</th>
 <th>Model Name</th>
 <th>Release Year</th>
 <th>Base Price</th>
+<th>Actions</th>
 </tr>
 {% for row in rows %}
 <tr>
-{% for item in row %}<td>{{ item }}</td>{% endfor %}
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+<td>
+<a href="/edit/{{ row[0] }}">Edit</a>
+| <a href="/delete/{{ row[0] }}">Delete</a>
+</td>
 </tr>
 {% endfor %}
 </table>
