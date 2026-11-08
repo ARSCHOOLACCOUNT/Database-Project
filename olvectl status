@@ -1,0 +1,28 @@
+[0;1;32m●[0m systemd-resolved.service - Network Name Resolution
+     Loaded: loaded (]8;;file://dbserver/usr/lib/systemd/system/systemd-resolved.service\/usr/lib/systemd/system/systemd-resolved.service]8;;\; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2026-11-02 22:42:06 UTC; 1h 40min ago
+ Invocation: b253d3f4e49d4d9782cf30f9b70c98d2
+TriggeredBy: [0;1;32m●[0m systemd-resolved-monitor.socket
+             [0;1;32m●[0m systemd-resolved-varlink.socket
+       Docs: ]8;;man:systemd-resolved.service(8)\man:systemd-resolved.service(8)]8;;\
+             ]8;;man:org.freedesktop.resolve1(5)\man:org.freedesktop.resolve1(5)]8;;\
+             ]8;;https://systemd.io/WRITING_NETWORK_CONFIGURATION_MANAGERS\https://systemd.io/WRITING_NETWORK_CONFIGURATION_MANAGERS]8;;\
+             ]8;;https://systemd.io/WRITING_RESOLVER_CLIENTS\https://systemd.io/WRITING_RESOLVER_CLIENTS]8;;\
+   Main PID: 631 (systemd-resolve)
+     Status: "[0;1;36mProcessing requests...[0m"
+      Tasks: 1[0;38:5:245m (limit: 13763)[0m
+     Memory: 7.5M (peak: 8.3M)
+        CPU: 704ms
+     CGroup: /system.slice/systemd-resolved.service
+             └─[0;38:5:245m631 /usr/lib/systemd/systemd-resolved[0m
+
+Nov 03 00:18:25 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set TCP instead of UDP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:18:41 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set UDP instead of TCP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:18:46 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set TCP instead of UDP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:19:02 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set UDP instead of TCP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:19:07 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set TCP instead of UDP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:19:23 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set UDP instead of TCP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:19:28 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set TCP instead of UDP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:19:44 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set UDP instead of TCP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:20:56 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set TCP instead of UDP for DNS server fd17:625c:f037:2::3.[0m
+Nov 03 00:21:12 dbserver systemd-resolved[631]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mUsing degraded feature set UDP instead of TCP for DNS server fd17:625c:f037:2::3.[0m

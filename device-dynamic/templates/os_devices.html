@@ -1,0 +1,13 @@
+<html>
+<head><title>Devices with this OS</title></head>
+<body>
+<h1>Devices running {{ os_row[0] }} {{ os_row[1] }}</h1>
+<table border="1">
+<tr><th>Model Name</th><th>Release Year</th><th>Base Price</th></tr>
+{% for row in rows %}
+<tr>{% for item in row %}<td>{{ item }}</td>{% endfor %}</tr>
+{% endfor %}
+</table>
+<p><a href="/os">Back to Operating Systems</a></p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<head><title>Operating Systems</title></head>
+<body>
+<h1>Operating Systems</h1>
+<ul>
+{% for row in rows %}
+<li><a href="/os_devices?osID={{ row[0] }}">{{ row[1] }} {{ row[2] }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

@@ -61,5 +61,75 @@ def delete(deviceID):
     connection.close()
     return redirect("/result")
 
+@app.route("/devices")
+
+def devices():
+    connection = getConnection()
+    cursor = connection.cursor()
+    cursor.execute("select deviceID, modelName from Device")
+    rows = cursor.fetchall()
+    connection.close()
+    return render_template("devices.html", rows=rows)
+
+@app.route("/device_os")
+def device_os():
+    deviceID = request.args.get("deviceID")
+    connection = getConnection()
+    cursor = connection.cursor()
+    cursor.execute("select modelName from Device where deviceID = %s", (deviceID,))
+    device = cursor.fetchone()
+    cursor.execute(
+        "select osName, versionNumber, Developer from Operating_System "
+        "join Device_OS on Operating_System.osID = Device_OS.osID "
+        "where Device_OS.deviceID = %s", (deviceID,)
+    )
+    rows = cursor.fetchall()
+    connection.close()
+    return render_template("device_os.html", device=device, rows=rows)
+
+@app.route("/os")
+def os_list():
+    connection = getConnection()
+    cursor = connection.cursor()
+    cursor.execute("select osID, osName, versionNumber from Operating_System")
+    rows = cursor.fetchall()
+    connection.close()
+    return render_template("os.html", rows=rows)
+
+@app.route("/os_devices")
+def os_devices():
+    osID = request.args.get("osID")
+    connection = getConnection()
+    cursor = connection.cursor()
+    cursor.execute("select osName, versionNumber from Operating_System where osID = %s", (osID,))
+    os_row = cursor.fetchone()
+    cursor.execute(
+        "select modelName, releaseYear, basePrice from Device "
+        "join Device_OS on Device.deviceID = Device_OS.deviceID "
+        "where Device_OS.osID = %s", (osID,)
+    )
+    rows = cursor.fetchall()
+    connection.close()
+    return render_template("os_devices.html", os_row=os_row, rows=rows)
+
+@app.route("/add_os")
+def add_os():
+    deviceID = request.args.get("deviceID")
+    osID = request.args.get("osID")
+    connection = getConnection()
+    cursor = connection.cursor()
+    if deviceID and osID:
+        cursor.execute("insert into Device_OS (deviceID, osID) values (%s, %s)", (deviceID, osID))
+        connection.commit()
+        connection.close()
+        return redirect("/device_os?deviceID=" + deviceID)
+    cursor.execute("select deviceID, modelName from Device")
+    deviceRows = cursor.fetchall()
+    cursor.execute("select osID, osName, versionNumber from Operating_System")
+    osRows = cursor.fetchall()
+    connection.close()
+    return render_template("add_os.html", devices=deviceRows, oses=osRows)
+
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)

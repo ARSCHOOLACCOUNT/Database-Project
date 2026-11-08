@@ -1,0 +1,11 @@
+<html>
+<head><title>Devices</title></head>
+<body>
+<h1>Devices</h1>
+<ul>
+{% for row in rows %}
+<li><a href="/device_os?deviceID={{ row[0] }}">{{ row[1] }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

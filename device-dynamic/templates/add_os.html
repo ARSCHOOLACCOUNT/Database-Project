@@ -1,0 +1,21 @@
+<html>
+<head><title>Add OS to Device</title></head>
+<body>
+<h1>Add an Operating System to a Device</h1>
+<form method="GET" action="/add_os">
+Device:
+<select name="deviceID">
+{% for d in devices %}
+<option value="{{ d[0] }}">{{ d[1] }}</option>
+{% endfor %}
+</select><br>
+Operating System:
+<select name="osID">
+{% for o in oses %}
+<option value="{{ o[0] }}">{{ o[1] }} {{ o[2] }}</option>
+{% endfor %}
+</select><br>
+<input type="submit" value="Add">
+</form>
+</body>
+</html>

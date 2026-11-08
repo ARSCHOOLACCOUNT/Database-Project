@@ -1,0 +1,13 @@
+<html>
+<head><title>Operating Systems for Device</title></head>
+<body>
+<h1>Operating Systems for {{ device[0] }}</h1>
+<table border="1">
+<tr><th>OS Name</th><th>Version</th><th>Developer</th></tr>
+{% for row in rows %}
+<tr>{% for item in row %}<td>{{ item }}</td>{% endfor %}</tr>
+{% endfor %}
+</table>
+<p><a href="/devices">Back to Devices</a></p>
+</body>
+</html>
